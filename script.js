@@ -151,17 +151,13 @@ $(document).ready(function () {
   // 5. HERO ANIMATIONS
   // ════════════════════════════════════════
   function initHeroAnimations() {
-    if (typeof gsap !== 'undefined') {
-      gsap.to('.hero-anim', { y: 0, opacity: 1, duration: 1.2, stagger: 0.2, ease: 'power4.out', delay: 0.2 });
-      gsap.from('#hero-card', { scale: 0.9, opacity: 0, duration: 1.5, ease: 'power3.out', delay: 0.2 });
-    } else {
-      document.querySelectorAll('.hero-anim').forEach(function(el) {
-        el.style.transform = 'translateY(0)';
-        el.style.opacity = '1';
-      });
-      const heroCard = document.getElementById('hero-card');
-      if (heroCard) { heroCard.style.transform = 'scale(1)'; heroCard.style.opacity = '1'; }
-    }
+    // Hero content is shown instantly, no entrance animation
+    document.querySelectorAll('.hero-anim').forEach(function(el) {
+      el.style.transform = 'none';
+      el.style.opacity = '1';
+    });
+    const heroCard = document.getElementById('hero-card');
+    if (heroCard) { heroCard.style.transform = 'none'; heroCard.style.opacity = '1'; }
   }
 
   // ════════════════════════════════════════
