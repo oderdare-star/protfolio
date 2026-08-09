@@ -211,6 +211,22 @@ body:hover .cursor-outline.dark.hovered {
 .terminal-body .function { color: #61AFEF; }
 .terminal-body .number { color: #D19A66; }
 
+/* Small Terminal (Mobile hero) */
+.terminal-window-sm .terminal-header {
+    padding: 6px 10px;
+}
+.terminal-window-sm .terminal-dot {
+    width: 8px; height: 8px;
+}
+.terminal-window-sm .terminal-title {
+    font-size: 10px;
+}
+.terminal-window-sm .terminal-body {
+    padding: 12px;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
 /* Typing Cursor */
 .typing-cursor::after {
     content: '▋';
@@ -497,9 +513,6 @@ select option { background-color: #121212; color: #f5f5f5; }
     .mobile-link::before { left: -20px; font-size: 0.7rem; }
     .whatsapp-float { width: 50px; height: 50px; font-size: 22px; bottom: 20px; right: 20px; }
     .scanlines { display: none; }
-    .terminal-header { padding: 8px 12px; }
-    .terminal-title { font-size: 11px; }
-    .terminal-body { padding: 14px; font-size: 11px; line-height: 1.6; }
 }
 
 html { scroll-behavior: smooth; }

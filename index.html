@@ -167,8 +167,24 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8 w-full h-auto md:h-full items-center relative z-10">
-                <!-- Left Terminal -->
-                <div class="md:col-span-3 flex flex-col justify-between md:h-2/3 mb-8 md:mb-0">
+                <!-- Small Terminal (Mobile only) -->
+                <div class="flex md:hidden w-full justify-center mb-6">
+                    <div class="terminal-window terminal-window-sm w-full max-w-xs">
+                        <div class="terminal-header">
+                            <div class="terminal-dot red"></div>
+                            <div class="terminal-dot yellow"></div>
+                            <div class="terminal-dot green"></div>
+                            <span class="terminal-title">bash</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div><span class="prompt">$</span> <span class="cmd">npm run dev</span></div>
+                            <div class="mt-1"><span class="string">> Ready on localhost:3000</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Left Terminal (Desktop only) -->
+                <div class="md:col-span-3 hidden md:flex flex-col justify-between md:h-2/3 mb-8 md:mb-0">
                     <div class="terminal-window w-full">
                         <div class="terminal-header">
                             <div class="terminal-dot red"></div>
