@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Omar Derdare — Fullstack Developer available for projects.">
+    <title>Contact | Omar Derdare</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            black: '#0a0a0a',
+                            dark: '#121212',
+                            gray: '#2a2a2a',
+                            accent: '#FF3B30',
+                            white: '#f5f5f5'
+                        }
+                    },
+                    animation: {
+                        'spin-slow': 'spin 12s linear infinite',
+                        'marquee': 'marquee 25s linear infinite',
+                        'marquee2': 'marquee2 25s linear infinite',
+                        'scroll-down': 'scrollDown 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        marquee2: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(0%)' },
+                        },
+                        scrollDown: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-white">
+    <!-- Matrix Rain Background -->
+    <canvas id="matrix-canvas"></canvas>
+    <!-- Scanlines Overlay -->
+    <div class="scanlines"></div>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/212600000000" target="_blank" class="whatsapp-float hover-trigger" aria-label="Chat on WhatsApp">
+        <i class="ph ph-whatsapp-logo"></i>
+        <span class="whatsapp-tooltip">Let's chat on WhatsApp</span>
+    </a>
+
+    <div id="page-loader" class="fixed inset-0 bg-brand-black z-[100] flex items-center justify-center">
+        <div class="text-center">
+            <div class="font-mono text-brand-accent text-sm mb-4 typing-loader">&lt;loading /&gt;</div>
+            <h1 class="font-display text-6xl md:text-8xl font-bold text-white tracking-tighter loader-text">OMAR<span class="text-brand-accent">.</span></h1>
+            <div class="mt-6 w-32 h-[2px] bg-white/10 mx-auto overflow-hidden"><div class="h-full bg-brand-accent loader-bar"></div></div>
+        </div>
+    </div>
+
+    <div class="cursor-dot block"></div>
+    <div class="cursor-outline block"></div>
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-[1] opacity-[0.03] bg-grain"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center text-white transition-all duration-300 bg-black/50 backdrop-blur-md border-b border-white/5" id="navbar">
+        <a href="index.html" class="logo font-display font-bold text-3xl tracking-tighter hover-trigger relative z-50">OMAR<span class="text-brand-accent">.</span></a>
+        <div class="hidden md:flex items-center space-x-12">
+            <div class="relative group">
+                <button class="font-display uppercase tracking-widest text-sm hover:text-brand-accent transition-colors flex items-center gap-1 hover-trigger">Menu <i class="ph ph-caret-down"></i></button>
+                <div class="absolute top-full left-0 mt-4 w-48 bg-brand-dark border border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 shadow-2xl">
+                    <a href="about.html" class="block px-6 py-3 text-sm font-sans hover:bg-white hover:text-black transition-colors">About</a>
+                    <a href="projects.html" class="block px-6 py-3 text-sm font-sans hover:bg-white hover:text-black transition-colors">Projects</a>
+                    <a href="services.html" class="block px-6 py-3 text-sm font-sans hover:bg-white hover:text-black transition-colors">Services</a>
+                    <a href="contact.html" class="block px-6 py-3 text-sm font-sans hover:bg-white hover:text-black transition-colors">Contact</a>
+                </div>
+            </div>
+            <a href="about.html" class="font-display uppercase tracking-widest text-sm hover:text-brand-accent transition-colors hover-trigger">About</a>
+            <a href="projects.html" class="font-display uppercase tracking-widest text-sm hover:text-brand-accent transition-colors hover-trigger">Work</a>
+            <a href="contact.html" class="bg-white text-black px-6 py-2 font-display font-bold uppercase text-sm tracking-wider hover:bg-brand-accent hover:text-white transition-colors hover-trigger">Hire Me</a>
+        </div>
+        <button class="hamburger md:hidden hover-trigger z-50 relative focus:outline-none" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed inset-0 bg-brand-black/95 backdrop-blur-xl z-40 flex flex-col opacity-0 invisible transition-all duration-500 overflow-hidden pt-24">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-accent/5 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="container mx-auto px-8 h-full flex flex-col justify-center relative z-10">
+            <div class="flex flex-col space-y-2">
+                <a href="index.html" class="menu-item group mobile-link font-display text-5xl md:text-6xl uppercase font-bold text-white hover:text-brand-accent transition-colors" data-index="01">Home</a>
+                <a href="about.html" class="menu-item group mobile-link font-display text-5xl md:text-6xl uppercase font-bold text-white hover:text-brand-accent transition-colors" data-index="02">About</a>
+                <a href="projects.html" class="menu-item group mobile-link font-display text-5xl md:text-6xl uppercase font-bold text-white hover:text-brand-accent transition-colors" data-index="03">Projects</a>
+                <a href="services.html" class="menu-item group mobile-link font-display text-5xl md:text-6xl uppercase font-bold text-white hover:text-brand-accent transition-colors" data-index="04">Services</a>
+                <a href="contact.html" class="menu-item group mobile-link font-display text-5xl md:text-6xl uppercase font-bold text-white hover:text-brand-accent transition-colors" data-index="05">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <header class="relative w-full min-h-[50vh] flex items-end overflow-hidden bg-brand-black pt-32 pb-16">
+        <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-brand-accent/10 rounded-full blur-[120px] opacity-30"></div>
+        <div class="container mx-auto px-6 md:px-20 relative z-10">
+            <span class="font-mono text-xs uppercase tracking-widest text-brand-accent mb-4 block">Get in Touch</span>
+            <h1 class="font-display text-6xl md:text-9xl font-bold uppercase leading-[0.9] text-white">
+                Let's build<br><span class="text-brand-accent outlined-text">together.</span>
+            </h1>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="py-24 bg-brand-black px-6 md:px-20 border-t border-white/5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div>
+                <h2 class="font-display text-4xl uppercase font-bold text-white mb-8">Let's Talk</h2>
+                <p class="font-sans text-gray-400 leading-relaxed mb-12 max-w-md">Whether you have a detailed brief or just an idea, I'd love to hear about it. Every great project starts with a conversation.</p>
+                <div class="space-y-8">
+                    <div class="flex items-start gap-4">
+                        <div class="text-brand-accent text-xl pt-1"><i class="ph ph-envelope"></i></div>
+                        <div>
+                            <h4 class="font-display text-lg uppercase font-bold text-white mb-1">Email</h4>
+                            <p class="font-sans text-gray-400 text-sm">hello@omarderdare.dev<br>projects@omarderdare.dev</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="text-brand-accent text-xl pt-1"><i class="ph ph-clock"></i></div>
+                        <div>
+                            <h4 class="font-display text-lg uppercase font-bold text-white mb-1">Availability</h4>
+                            <p class="font-sans text-gray-400 text-sm">Monday — Friday<br>9:00 AM — 6:00 PM GMT</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="text-brand-accent text-xl pt-1"><i class="ph ph-globe"></i></div>
+                        <div>
+                            <h4 class="font-display text-lg uppercase font-bold text-white mb-1">Location</h4>
+                            <p class="font-sans text-gray-400 text-sm">Remote Worldwide<br>Available for on-site</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 pt-8 border-t border-white/10">
+                    <h4 class="font-display text-sm uppercase tracking-widest text-brand-accent mb-4">Follow Me</h4>
+                    <div class="flex gap-4 text-xl">
+                        <a href="#" class="w-12 h-12 border border-white/20 flex items-center justify-center text-white hover:bg-brand-accent hover:border-brand-accent transition-all"><i class="ph ph-github-logo"></i></a>
+                        <a href="#" class="w-12 h-12 border border-white/20 flex items-center justify-center text-white hover:bg-brand-accent hover:border-brand-accent transition-all"><i class="ph ph-linkedin-logo"></i></a>
+                        <a href="#" class="w-12 h-12 border border-white/20 flex items-center justify-center text-white hover:bg-brand-accent hover:border-brand-accent transition-all"><i class="ph ph-x-logo"></i></a>
+                        <a href="#" class="w-12 h-12 border border-white/20 flex items-center justify-center text-white hover:bg-brand-accent hover:border-brand-accent transition-all"><i class="ph ph-envelope-simple"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-brand-dark p-8 md:p-12 border border-white/10">
+                <form id="contact-form" onsubmit="event.preventDefault(); handleContactSubmit();">
+                    <div class="space-y-8">
+                        <div>
+                            <label class="block font-mono text-xs uppercase tracking-widest text-gray-500 mb-2">Name</label>
+                            <input type="text" required class="w-full bg-transparent border-b border-white/20 py-3 text-white font-sans focus:outline-none focus:border-brand-accent transition-colors placeholder:text-gray-700" placeholder="Your full name">
+                        </div>
+                        <div>
+                            <label class="block font-mono text-xs uppercase tracking-widest text-gray-500 mb-2">Email</label>
+                            <input type="email" required class="w-full bg-transparent border-b border-white/20 py-3 text-white font-sans focus:outline-none focus:border-brand-accent transition-colors placeholder:text-gray-700" placeholder="your@email.com">
+                        </div>
+                        <div>
+                            <label class="block font-mono text-xs uppercase tracking-widest text-gray-500 mb-2">Project Type</label>
+                            <select class="w-full bg-transparent border-b border-white/20 py-3 text-white font-sans focus:outline-none focus:border-brand-accent transition-colors appearance-none cursor-none">
+                                <option value="" class="bg-brand-dark">Select a service</option>
+                                <option value="web" class="bg-brand-dark">Web Development</option>
+                                <option value="api" class="bg-brand-dark">API & Backend</option>
+                                <option value="devops" class="bg-brand-dark">DevOps & Cloud</option>
+                                <option value="other" class="bg-brand-dark">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-mono text-xs uppercase tracking-widest text-gray-500 mb-2">Budget Range</label>
+                            <select class="w-full bg-transparent border-b border-white/20 py-3 text-white font-sans focus:outline-none focus:border-brand-accent transition-colors appearance-none cursor-none">
+                                <option value="" class="bg-brand-dark">Select budget</option>
+                                <option value="2k" class="bg-brand-dark">$2,500 — $5,000</option>
+                                <option value="5k" class="bg-brand-dark">$5,000 — $10,000</option>
+                                <option value="10k" class="bg-brand-dark">$10,000 — $25,000</option>
+                                <option value="25k" class="bg-brand-dark">$25,000+</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-mono text-xs uppercase tracking-widest text-gray-500 mb-2">Message</label>
+                            <textarea rows="4" required class="w-full bg-transparent border-b border-white/20 py-3 text-white font-sans focus:outline-none focus:border-brand-accent transition-colors placeholder:text-gray-700 resize-none" placeholder="Tell me about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-white text-black py-4 font-display font-bold uppercase text-sm tracking-wider hover:bg-brand-accent hover:text-white transition-colors hover-trigger">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 bg-brand-dark px-6 md:px-20 border-t border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-display text-5xl uppercase font-bold text-white mb-16 text-center">Common <span class="text-brand-accent">Questions</span></h2>
+            <div class="space-y-4">
+                <div class="border border-white/10 p-6 hover:border-brand-accent transition-colors cursor-pointer group" onclick="this.classList.toggle('active'); this.querySelector('.faq-answer').classList.toggle('hidden'); this.querySelector('.faq-icon').classList.toggle('rotate-45');">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-display text-xl uppercase font-bold text-white">How do we start working together?</h4>
+                        <i class="ph ph-plus text-brand-accent faq-icon transition-transform"></i>
+                    </div>
+                    <p class="faq-answer hidden font-sans text-gray-400 text-sm leading-relaxed mt-4">Send me a message through the contact form with your project details. I'll get back within 24 hours to schedule a discovery call where we discuss requirements, timeline, and budget.</p>
+                </div>
+                <div class="border border-white/10 p-6 hover:border-brand-accent transition-colors cursor-pointer group" onclick="this.classList.toggle('active'); this.querySelector('.faq-answer').classList.toggle('hidden'); this.querySelector('.faq-icon').classList.toggle('rotate-45');">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-display text-xl uppercase font-bold text-white">What is your typical project timeline?</h4>
+                        <i class="ph ph-plus text-brand-accent faq-icon transition-transform"></i>
+                    </div>
+                    <p class="faq-answer hidden font-sans text-gray-400 text-sm leading-relaxed mt-4">Timelines vary by scope. A simple landing page takes 1-2 weeks, a fullstack MVP takes 4-6 weeks, and complex enterprise apps can take 2-3 months. I'll provide a detailed timeline during our discovery call.</p>
+                </div>
+                <div class="border border-white/10 p-6 hover:border-brand-accent transition-colors cursor-pointer group" onclick="this.classList.toggle('active'); this.querySelector('.faq-answer').classList.toggle('hidden'); this.querySelector('.faq-icon').classList.toggle('rotate-45');">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-display text-xl uppercase font-bold text-white">Do you offer ongoing maintenance?</h4>
+                        <i class="ph ph-plus text-brand-accent faq-icon transition-transform"></i>
+                    </div>
+                    <p class="faq-answer hidden font-sans text-gray-400 text-sm leading-relaxed mt-4">Yes! I offer monthly retainer packages for maintenance, updates, bug fixes, and feature additions. This ensures your application stays secure and up-to-date.</p>
+                </div>
+                <div class="border border-white/10 p-6 hover:border-brand-accent transition-colors cursor-pointer group" onclick="this.classList.toggle('active'); this.querySelector('.faq-answer').classList.toggle('hidden'); this.querySelector('.faq-icon').classList.toggle('rotate-45');">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-display text-xl uppercase font-bold text-white">What technologies do you specialize in?</h4>
+                        <i class="ph ph-plus text-brand-accent faq-icon transition-transform"></i>
+                    </div>
+                    <p class="faq-answer hidden font-sans text-gray-400 text-sm leading-relaxed mt-4">My core stack is React/Next.js, Node.js, TypeScript, PostgreSQL, and AWS. I'm also experienced with Python, GraphQL, Docker, and various other modern tools. I choose the right tech for each project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-24 pb-12 border-t border-white/10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
+                <div class="md:col-span-6">
+                    <h2 class="font-display text-7xl md:text-9xl font-bold uppercase tracking-tighter leading-none mb-8">Let's<br><span class="text-brand-accent">Build.</span></h2>
+                </div>
+                <div class="md:col-span-3 space-y-8 pt-4">
+                    <h4 class="font-display text-xl uppercase tracking-widest text-brand-accent">Sitemap</h4>
+                    <ul class="space-y-4 font-sans text-gray-400">
+                        <li><a href="index.html" class="footer-link hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="footer-link hover:text-white transition-colors">About</a></li>
+                        <li><a href="projects.html" class="footer-link hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="services.html" class="footer-link hover:text-white transition-colors">Services</a></li>
+                        <li><a href="contact.html" class="footer-link hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-3 space-y-8 pt-4">
+                    <h4 class="font-display text-xl uppercase tracking-widest text-brand-accent">Connect</h4>
+                    <ul class="space-y-4 font-sans text-gray-400 inline-block">
+                        <li><a href="#" class="footer-link hover:text-white transition-colors flex items-center gap-2"><i class="ph ph-github-logo"></i> GitHub</a></li>
+                        <li><a href="#" class="footer-link hover:text-white transition-colors flex items-center gap-2"><i class="ph ph-linkedin-logo"></i> LinkedIn</a></li>
+                        <li><a href="#" class="footer-link hover:text-white transition-colors flex items-center gap-2"><i class="ph ph-x-logo"></i> Twitter/X</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest font-sans">
+                <p>© 2025 Omar Derdare. All Rights Reserved.<br>Built with <span class="text-brand-accent">♥</span> by <span class="underline decoration-brand-accent underline-offset-4 hover:text-brand-accent transition-colors hover-trigger"><a href="#" class="underline">Omar Derdare</a></span>.</p>
+                <div class="flex gap-8 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
