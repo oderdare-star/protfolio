@@ -406,68 +406,61 @@
             <a href="projects.html" class="font-mono text-brand-accent hover:text-white transition-colors text-sm">View All →</a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-            <a href="projects.html" class="project-card group hover-trigger block">
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8" id="portfolio-grid">
+
+            <div class="portfolio-card group hover-trigger" data-category="fullstack">
                 <div class="h-[350px] w-full overflow-hidden relative border border-white/10">
-                    <div class="w-full h-full bg-brand-gray flex items-center justify-center">
-                        <div class="text-center">
-                            <i class="ph ph-shopping-cart text-6xl text-brand-accent mb-4"></i>
-                            <p class="font-mono text-xs text-gray-500 uppercase">E-Commerce Platform</p>
-                        </div>
-                    </div>
+                    <div class="portfolio-image w-full h-full bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80');" role="img" aria-label="Portfolio project preview"></div>
                     <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6">
                         <span class="font-display text-2xl uppercase tracking-widest text-white mb-2">Shopify Killer</span>
                         <span class="font-mono text-xs text-brand-accent uppercase mb-4">React / Node / Stripe</span>
-                        <span class="text-xs text-gray-400 text-center">Full-featured e-commerce with real-time inventory, admin dashboard, and payment processing.</span>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-xs border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors">Live Demo</a>
+                            <a href="#" class="text-xs border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors">GitHub</a>
+                        </div>
                     </div>
                 </div>
                 <div class="mt-4 flex justify-between border-b border-white/20 pb-2">
                     <h4 class="font-display uppercase text-xl">E-Commerce Platform</h4>
                     <span class="text-sm text-gray-500">2025</span>
                 </div>
-            </a>
+            </div>
 
-            <a href="projects.html" class="project-card group hover-trigger block">
+            <div class="portfolio-card group hover-trigger" data-category="fullstack">
                 <div class="h-[350px] w-full overflow-hidden relative border border-white/10">
-                    <div class="w-full h-full bg-brand-gray flex items-center justify-center">
-                        <div class="text-center">
-                            <i class="ph ph-chart-line-up text-6xl text-brand-accent mb-4"></i>
-                            <p class="font-mono text-xs text-gray-500 uppercase">Analytics Dashboard</p>
-                        </div>
-                    </div>
+                    <div class="portfolio-image w-full h-full bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80');" role="img" aria-label="Portfolio project preview"></div>
                     <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6">
                         <span class="font-display text-2xl uppercase tracking-widest text-white mb-2">DataViz Pro</span>
                         <span class="font-mono text-xs text-brand-accent uppercase mb-4">Next.js / D3 / PostgreSQL</span>
-                        <span class="text-xs text-gray-400 text-center">Real-time analytics dashboard with customizable widgets and data export.</span>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-xs border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors">Live Demo</a>
+                            <a href="#" class="text-xs border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors">GitHub</a>
+                        </div>
                     </div>
                 </div>
                 <div class="mt-4 flex justify-between border-b border-white/20 pb-2">
                     <h4 class="font-display uppercase text-xl">Analytics Dashboard</h4>
                     <span class="text-sm text-gray-500">2024</span>
                 </div>
-            </a>
+            </div>
 
-            <a href="projects.html" class="project-card group hover-trigger block">
+            <div class="portfolio-card group hover-trigger" data-category="backend">
                 <div class="h-[350px] w-full overflow-hidden relative border border-white/10">
-                    <div class="w-full h-full bg-brand-gray flex items-center justify-center">
-                        <div class="text-center">
-                            <i class="ph ph-chat-circle-dots text-6xl text-brand-accent mb-4"></i>
-                            <p class="font-mono text-xs text-gray-500 uppercase">Real-Time Chat</p>
-                        </div>
-                    </div>
+                    <div class="portfolio-image w-full h-full bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80');" role="img" aria-label="Portfolio project preview"></div>
                     <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6">
                         <span class="font-display text-2xl uppercase tracking-widest text-white mb-2">ChatStream</span>
                         <span class="font-mono text-xs text-brand-accent uppercase mb-4">Socket.io / Redis / React</span>
-                        <span class="text-xs text-gray-400 text-center">Scalable real-time messaging with typing indicators, read receipts, and file sharing.</span>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-xs border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors">Live Demo</a>
+                            <a href="#" class="text-xs border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors">GitHub</a>
+                        </div>
                     </div>
                 </div>
                 <div class="mt-4 flex justify-between border-b border-white/20 pb-2">
                     <h4 class="font-display uppercase text-xl">Real-Time Chat</h4>
                     <span class="text-sm text-gray-500">2024</span>
                 </div>
-            </a>
-        </div>
-    </section>
+            </div>
 
     <!-- Services -->
     <section class="py-32 bg-brand-dark relative overflow-hidden">

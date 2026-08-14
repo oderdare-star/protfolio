@@ -56,6 +56,27 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<style>
+.portfolio-card .portfolio-image {
+    min-height: 350px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease;
+}
+.portfolio-card:hover .portfolio-image {
+    transform: scale(1.04);
+}
+@media (max-width: 767px) {
+    .portfolio-card .portfolio-image {
+        min-height: 260px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+    .portfolio-card .portfolio-image {
+        min-height: 320px;
+    }
+}
+</style>
 </head>
 <body class="antialiased selection:bg-brand-accent selection:text-white">
     <!-- Matrix Rain Background -->
@@ -133,7 +154,7 @@
             <button class="portfolio-filter font-display text-sm uppercase tracking-wider text-gray-500 hover:text-brand-accent transition-colors" data-filter="fullstack">Fullstack</button>
             <button class="portfolio-filter font-display text-sm uppercase tracking-wider text-gray-500 hover:text-brand-accent transition-colors" data-filter="frontend">Frontend</button>
             <button class="portfolio-filter font-display text-sm uppercase tracking-wider text-gray-500 hover:text-brand-accent transition-colors" data-filter="backend">Backend</button>
-            <button class="portfolio-filter font-display text-sm uppercase tracking-wider text-gray-500 hover:text-brand-accent transition-colors" data-filter="mobile">Mobile</button>
+            <button class="portfolio-filter font-display text-sm uppercase tracking-wider text-gray-500 hover:text-brand-accent transition-colors" data-filter="landingpage">landingPage</button>
         </div>
     </section>
 
@@ -143,9 +164,7 @@
 
             <div class="portfolio-card group hover-trigger" data-category="fullstack">
                 <div class="h-[350px] w-full overflow-hidden relative border border-white/10">
-                    <div class="w-full h-full bg-brand-gray flex items-center justify-center">
-                        <i class="ph ph-shopping-cart text-6xl text-brand-accent"></i>
-                    </div>
+                    <div class="portfolio-image w-full h-full bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80');" role="img" aria-label="Portfolio project preview"></div>
                     <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6">
                         <span class="font-display text-2xl uppercase tracking-widest text-white mb-2">Shopify Killer</span>
                         <span class="font-mono text-xs text-brand-accent uppercase mb-4">React / Node / Stripe</span>
@@ -159,13 +178,11 @@
                     <h4 class="font-display uppercase text-xl">E-Commerce Platform</h4>
                     <span class="text-sm text-gray-500">2025</span>
                 </div>
-            </div>
+            <p class="mt-3 text-sm leading-6 text-gray-400 max-w-2xl">A modern full-stack online store with product management, secure checkout, payments, and a responsive shopping experience.</p></div>
 
             <div class="portfolio-card group hover-trigger" data-category="fullstack">
                 <div class="h-[350px] w-full overflow-hidden relative border border-white/10">
-                    <div class="w-full h-full bg-brand-gray flex items-center justify-center">
-                        <i class="ph ph-chart-line-up text-6xl text-brand-accent"></i>
-                    </div>
+                    <div class="portfolio-image w-full h-full bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80');" role="img" aria-label="Portfolio project preview"></div>
                     <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6">
                         <span class="font-display text-2xl uppercase tracking-widest text-white mb-2">DataViz Pro</span>
                         <span class="font-mono text-xs text-brand-accent uppercase mb-4">Next.js / D3 / PostgreSQL</span>
@@ -179,13 +196,11 @@
                     <h4 class="font-display uppercase text-xl">Analytics Dashboard</h4>
                     <span class="text-sm text-gray-500">2024</span>
                 </div>
-            </div>
+            <p class="mt-3 text-sm leading-6 text-gray-400 max-w-2xl">A powerful analytics dashboard that transforms complex data into clear interactive charts, metrics, and business insights.</p></div>
 
             <div class="portfolio-card group hover-trigger" data-category="backend">
                 <div class="h-[350px] w-full overflow-hidden relative border border-white/10">
-                    <div class="w-full h-full bg-brand-gray flex items-center justify-center">
-                        <i class="ph ph-chat-circle-dots text-6xl text-brand-accent"></i>
-                    </div>
+                    <div class="portfolio-image w-full h-full bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80');" role="img" aria-label="Portfolio project preview"></div>
                     <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6">
                         <span class="font-display text-2xl uppercase tracking-widest text-white mb-2">ChatStream</span>
                         <span class="font-mono text-xs text-brand-accent uppercase mb-4">Socket.io / Redis / React</span>
@@ -199,53 +214,65 @@
                     <h4 class="font-display uppercase text-xl">Real-Time Chat</h4>
                     <span class="text-sm text-gray-500">2024</span>
                 </div>
-            </div>
+            <p class="mt-3 text-sm leading-6 text-gray-400 max-w-2xl">A real-time messaging platform with instant communication, live updates, and a scalable backend architecture.</p></div>
 
             <div class="portfolio-card group hover-trigger" data-category="frontend">
                 <div class="h-[350px] w-full overflow-hidden relative border border-white/10">
-                    <div class="w-full h-full bg-brand-gray flex items-center justify-center">
-                        <i class="ph ph-film-strip text-6xl text-brand-accent"></i>
-                    </div>
+                    <div class="portfolio-image w-full h-full bg-cover bg-center bg-no-repeat" style="background-image: url('image/resto.png');" role="img" aria-label="Portfolio project preview"></div>
                     <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6">
-                        <span class="font-display text-2xl uppercase tracking-widest text-white mb-2">CineStream</span>
-                        <span class="font-mono text-xs text-brand-accent uppercase mb-4">React / TMDB API</span>
+                        <span class="font-display text-2xl uppercase tracking-widest text-white mb-2">High-Performance Catering Website</span>
+                        <span class="font-mono text-xs text-brand-accent uppercase mb-4">javascript / tailwind</span>
                         <div class="flex gap-3">
-                            <a href="#" class="text-xs border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors">Live Demo</a>
+                            <a href="https://high-performance-catering-website.vercel.app/" class="text-xs border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors">Live Demo</a>
                             <a href="#" class="text-xs border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors">GitHub</a>
                         </div>
                     </div>
                 </div>
                 <div class="mt-4 flex justify-between border-b border-white/20 pb-2">
-                    <h4 class="font-display uppercase text-xl">Movie Streaming UI</h4>
+                    <h4 class="font-display uppercase text-xl">High-Performance Catering Website</h4>
                     <span class="text-sm text-gray-500">2024</span>
                 </div>
-            </div>
+            <p class="mt-3 text-sm leading-6 text-gray-400 max-w-2xl">Premium static catering website with a modern, responsive design showcasing services, chefs, venues, and luxury culinary experiences.</p></div>
 
-            <div class="portfolio-card group hover-trigger" data-category="mobile">
+            <div class="portfolio-card group hover-trigger" data-category="landingpage">
                 <div class="h-[350px] w-full overflow-hidden relative border border-white/10">
-                    <div class="w-full h-full bg-brand-gray flex items-center justify-center">
-                        <i class="ph ph-device-mobile text-6xl text-brand-accent"></i>
-                    </div>
+                    <div class="portfolio-image w-full h-full bg-cover bg-center bg-no-repeat" style="background-image: url('image/ladinggpage.png');" role="img" aria-label="Portfolio project preview"></div>
                     <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6">
-                        <span class="font-display text-2xl uppercase tracking-widest text-white mb-2">FitTrack</span>
-                        <span class="font-mono text-xs text-brand-accent uppercase mb-4">React Native / Firebase</span>
+                        <span class="font-display text-2xl uppercase tracking-widest text-white mb-2">construction landing page</span>
+                        <span class="font-mono text-xs text-brand-accent uppercase mb-4">Tailwind / javascript</span>
                         <div class="flex gap-3">
-                            <a href="#" class="text-xs border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors">App Store</a>
+                            <a href="https://counstractor.vercel.app/" class="text-xs border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors">Live Demo</a>
                             <a href="#" class="text-xs border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors">GitHub</a>
                         </div>
                     </div>
                 </div>
                 <div class="mt-4 flex justify-between border-b border-white/20 pb-2">
-                    <h4 class="font-display uppercase text-xl">Fitness Tracker App</h4>
+                    <h4 class="font-display uppercase text-xl">construction landing page</h4>
                     <span class="text-sm text-gray-500">2023</span>
                 </div>
-            </div>
+            <p class="mt-3 text-sm leading-6 text-gray-400 max-w-2xl">Modern responsive construction landing page showcasing services, projects, and expertise with a professional design focused on trust and lead generation.</p></div>
+                <div class="portfolio-card group hover-trigger" data-category="landingpage">
+                <div class="h-[350px] w-full overflow-hidden relative border border-white/10">
+                    <div class="portfolio-image w-full h-full bg-cover bg-center bg-no-repeat" style="background-image: url('image/photograph.png');" role="img" aria-label="Portfolio project preview"></div>
+                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6">
+                        <span class="font-display text-2xl uppercase tracking-widest text-white mb-2">photography landing page</span>
+                        <span class="font-mono text-xs text-brand-accent uppercase mb-4">Tailwind / javascript</span>
+                        <div class="flex gap-3">
+                            <a href="https://photograph-site-gamma.vercel.app/" class="text-xs border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors">Live Demo</a>
+                            <a href="#" class="text-xs border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 flex justify-between border-b border-white/20 pb-2">
+                    <h4 class="font-display uppercase text-xl">photography landing page</h4>
+                    <span class="text-sm text-gray-500">2023</span>
+                </div>
+            <p class="mt-3 text-sm leading-6 text-gray-400 max-w-2xl">Elegant responsive photography landing page showcasing creative work and services through a clean, image-focused design built to attract clients.</p></div>
 
+            
             <div class="portfolio-card group hover-trigger" data-category="backend">
                 <div class="h-[350px] w-full overflow-hidden relative border border-white/10">
-                    <div class="w-full h-full bg-brand-gray flex items-center justify-center">
-                        <i class="ph ph-credit-card text-6xl text-brand-accent"></i>
-                    </div>
+                    <div class="portfolio-image w-full h-full bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80');" role="img" aria-label="Portfolio project preview"></div>
                     <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6">
                         <span class="font-display text-2xl uppercase tracking-widest text-white mb-2">PayGate API</span>
                         <span class="font-mono text-xs text-brand-accent uppercase mb-4">Node.js / Stripe / Docker</span>
@@ -259,7 +286,7 @@
                     <h4 class="font-display uppercase text-xl">Payment Gateway API</h4>
                     <span class="text-sm text-gray-500">2023</span>
                 </div>
-            </div>
+            <p class="mt-3 text-sm leading-6 text-gray-400 max-w-2xl">A secure payment API designed to handle transactions, payment processing, and integrations between online stores and payment services.</p></div>
 
         </div>
     </section>
